@@ -1,0 +1,10 @@
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4"><%= @article.title %></h1>
+        <p class="lead"><%= @article.body %></p>
+        <hr class="my-4">
+        <p><%= @article.created_at %></p>
+        <%= link_to "Back", articles_path, class:"btn btn-primary btn-lg" %>
+        <%= link_to "Destroy", article_path(@article), method: :delete, class:"btn btn-danger btn-lg",data: { confirm: "Are you sure?" }  %>
+    </div>
+</div>

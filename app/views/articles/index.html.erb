@@ -1,2 +1,26 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<div class="container pt-5">
+    <%= link_to "New Article",new_article_path, class:"btn btn-primary mb-3" %>
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="">
+            <tr>
+                <th scope="col">title</th>
+                <th scope="col">body</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Destroy</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @articles.each do |article| %>
+            <tr>
+                <td><%= link_to article_path(article) do %>
+                    <%= article.title %>
+                    <%end %>
+                </td>
+                <td><%= article.body %></td>
+                <td><%= link_to "Edit", edit_article_path(article) %></td>
+                <td><%= link_to "Delete", article_path(article), method: :delete ,data: { confirm: "Are you sure?" } %></td>
+            </tr>
+            <%end %>
+        </tbody>
+    </table>
+</div>
